@@ -1,0 +1,40 @@
+PSEUDO
+
+Bundle
+Create Users
+Create Deck
+Creaet Cards
+
+SEED!
+-Deck ----> US Capitols
+-Cards
+
+ROUTES!
+get '/' if session[:user] != nil
+  loggied in, display Play! Don''t display register, login 
+else
+  display login and register and Play!
+end
+
+Post '/lLogin'
+  session[:id] = user.id
+  redirect ---> user prof/:id
+end
+
+Get 'Logout'
+  session.clear
+  redirect '/'
+end
+
+Get '/User/profile/:id'
+  display stats
+  display Decks
+  (link) make new deck
+  (link) edit deck
+  (link) edit profile
+end
+
+get '/play'
+  display definition
+  wait for answer
+end
