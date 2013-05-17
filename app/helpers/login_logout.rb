@@ -10,7 +10,7 @@ helpers do
   end
 
   def create_user(name, email, password)
-    @user = User.new(name, email)
+    @user = User.new(name: name, email: email)
     @user.password = password
     @user.save!
     redirect '/user/profile'
