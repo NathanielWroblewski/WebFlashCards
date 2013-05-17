@@ -1,12 +1,15 @@
-<% erb :_navbar, :layout => false %>
+
 
 <div class="container">
   <h1>Let's play this <%= @deck.name %></h1>
   
   <% until game_over %> <!-- need to figure this out! -->
-    <%= @deck.each do |card| %>
-      <%= card.question %>
-      
+    <% @deck.each do |card| %>
+      <h3><%= card.question %><h3>
+        <p><% if answer == card.answer %></p>
+          <p>Correct!</p>
+
+
   
   
 
