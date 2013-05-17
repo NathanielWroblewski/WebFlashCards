@@ -1,10 +1,10 @@
 get '/' do
-  # Look in app/views/index.erb
+
+  @list_decks = Deck.all
   erb :index
 end
 
-get '/play/:deck'
-  @deck = Deck.
-
+get '/play/:name' do
+  @deck = Deck.find_by_name(params[:name])
   erb :play
 end
