@@ -4,7 +4,7 @@ get '/' do
   erb :index
 end
 
-get '/play/:name' do
-  @deck = Deck.find_by_name(params[:name])
+get '/play/:id' do
+  @deck = Deck.find_by_name(params[:id])
   erb :play
 end

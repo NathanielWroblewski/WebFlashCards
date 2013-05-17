@@ -3,7 +3,10 @@
 <div class="container">
   <h1>Let's play this <%= @deck.name %></h1>
   
-  <p></p> <!-- AJAX goes here showing card definition? -->
+  <% until game_over %> <!-- need to figure this out! -->
+    <%= @deck.each do |card| %>
+      <%= card.question %>
+      
   
   
 
