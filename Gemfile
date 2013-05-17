@@ -1,4 +1,6 @@
 source :rubygems
+# Authentication
+gem 'bcrypt-ruby'
 
 # PostgreSQL driver
 gem 'pg'
