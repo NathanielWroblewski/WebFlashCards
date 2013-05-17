@@ -1,7 +1,7 @@
 helpers do
   
   def logged_in
-    # @user = User.find(session[:user_id])
+    @user = User.find(session[:user_id])
   end
 
   def logout
