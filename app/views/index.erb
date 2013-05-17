@@ -1,23 +1,22 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+  <h1>Insert Title Here</h1>
+ 
+ <!-- SIGN UP FORM -->
+  <h2>Create an Account</h2>
+  <form method="post" action="/signup">
+   <p><input type="text" name="name" placeholder="First Name"></p>
+   <p><input type="text" name="email" placeholder="Email"></p>
+   <p><input type="password" name="password" placeholder="Password"></p>
+   <p><input type="submit" value="Create"></p>
+  </form>
+  <hr>
+  
+  <!-- LOGIN FORM -->
+  <h2>Login</h2>
+  <form method="post" action="/login">
+   <p><input type="text" name="email" placeholder="Email"></p>
+   <p><input type="password" name="password" placeholder="Password"></p>
+   <p><input type="submit" value="Login"></p>
+  </form>
 
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
 </div>

@@ -6,7 +6,7 @@ end
 
 #LOGIN / SIGNUP / LOGOUT
 post '/login' do 
- authenticate(params[:email], params[:password])
+  authenticate(params[:email], params[:password])
 end
 
 post '/signup' do
