@@ -763,8 +763,29 @@
             // force going to active step again, to trigger rescaling
             api.goto( document.querySelector(".step.active"), 500 );
         }, 250), false);
-        
+       
+
+$(document).ready(function() {
+  $('.get_answer').on("submit", function(e){
+    e.preventDefault();
+    var $answer = $("#"+($(this).parent().attr('data')))
+    $.ajax ({
+       type: 'post',
+       url: '/check_answer',
+       data: $(this).serialize()
+    }).done(function(response){
+      if (response === "true"){
+        $answer.append($('<p>Correct!<p>').css('color', 'green'));
+        api.next();
+      }else{
+        $answer.append($('<p>Incorrect!<p>').css('color', 'red'));
+        api.next();
+      }
+    });
+  });
+});   
     }, false);
+
         
 })(document, window);
 
