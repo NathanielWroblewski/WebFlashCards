@@ -32,3 +32,8 @@ get '/user/profile' do
   erb :profile
 end
 
+#ABOUT US PAGE
+get '/about' do
+  erb :about
+end
+
