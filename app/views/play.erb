@@ -1,43 +1,43 @@
-<div class="container">
-  <h1>Let's play a game about <%= @deck.name %></h1>
-  
-  
-    <% @deck.cards.each do |card| %> 
-  <div id="question">   
-      <h3><%= card.question %><h3>
-        <form class='get_answer' method="post" action="/check_answer">
-          <input class="user_answer" type='text'required name="user_answer">
-          <input class="db_answer" type='hidden' name="card_answer" value='<%= card.answer %>'>
-           <input class="db_cardid" type='hidden' name="card_id" value='<%= card.id %>'>
-          <input type='submit' value='Final Answer'>
-        </form>
-       <!--  <p><#% if check_answer(params[:answer]) %></p>
-          <p>Correct!</p>
-          <#% else %>  
-          <p>Incorrect!</p>  
-        <#% end %> -->
-        </div>
-    <% end %>
- 
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
 
+<div id="impress">
 
+  <% x = 0 %>
+  <% y = 0 %>
+  <% z = 0 %>
 
-  
-  
+  <% @deck.cards.each_with_index do |card, index| %>
+  <div data="<%= card.id %>" class="step slide" data-x="<%= x %>" data-y="<%= y %>" data-z="<%= z%>">
+    <q><%= card.question %></q><br><br>
+    <form class='get_answer' method="post" action="/check_answer">
+      <input class="user_answer" type='text'required name="user_answer">
+      <input type='submit' value='Final Answer'>
+      <input class="db_answer" type='hidden' name="card_answer" value='<%= card.answer %>'>
+      <input class="db_cardid" type='hidden' name="card_id" value='<%= card.id %>'>
+    </form>
+  </div>
+  <% z -= 3000 %>
+  <div  class="step" data-x="<%= x %>" data-y="<%= y %>" data-z="<%= z %>">
+    <p id="<%= card.id %>" class="answer"><%= card.answer %></p>
+  </div>
+  <% z -= 3000 %>
+  <% end %>
+
 
 </div>
 
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
 
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
 
-
-
-
-
-
-
-
-
-<!-- 
-later features
--high score and user 
--->
+<script src="/js/impress.js"></script>
+<script>impress().init();</script>
