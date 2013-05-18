@@ -1,7 +1,38 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $('.get_answer').on("submit", function(e){
+    e.preventDefault();
+    $this = $(this);
+    $.ajax ({
+       type: 'post',
+       url: '/check_answer',
+       data: $(this).serialize()
+    }).done(function(response){
+      if (response === "true"){
+        $this.append("Correct!");
+      }else{
+        $this.append("Incorrect!");
+      }
+    });
+  });
 });
+
+
+
+
+
+
+
+
+//     console.log($('#db_answer').attr("value") === ($('#user_answer').attr("value")));
+//     console.log($('#db_answer').attr("value"));
+//     console.log($('#user_answer').attr("value"));
+//     $(this).children(".db_answer");
+//     if ($('#db_answer').attr("value") === ($('#user_answer').val() )){
+//       $('#question').append("<p>Correct!</p>");
+//     }
+//       else {
+//           $('#question').append("<p>Incorrect!</p>");
+//       };
+//     });
+// });
+
